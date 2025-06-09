@@ -35,28 +35,24 @@ Here’s a look into our current homepage:
 
 ## ❖ Tech & Roadmap
 
-Yumeta has started its journey with the foundational building blocks:  
-**HTML, CSS, and JavaScript** power the simple yet functional interface you see today.
+Yumeta began with a solid foundation of **HTML, CSS, and JavaScript**, crafting a clean and responsive interface.
 
-Looking ahead, here’s what’s coming next:
+Looking forward, the platform will evolve with immersive and interactive features:
 
-- 🎞️ **Anime & Manga Menu:**  
-  Users will select between “Anime” and “Manga” via sleek dropdown menus.  
-  Hover effects will reveal character animations and subtle transitions.  
-  We aim to offer live anime streaming with custom video players,  
-  and shared manga reading experiences for fans to enjoy together.
+- **Dynamic Anime & Manga Selector:**  
+  Instead of simple dropdowns, users will engage with an interactive character-selection panel reminiscent of fighting games.  
+  Selecting a character or category will illuminate that side with smooth animations, while the other dims subtly—creating an intuitive and visually captivating navigation experience.  
+  This will lead to rich experiences like synchronized anime streaming and shared manga reading.
 
-- 🤖 **AI Chat Companions:**  
-  We are building our own AI chat system from scratch,  
-  focusing on lightweight machine learning techniques without relying on large-scale language models,  
-  delivering friendly and meaningful conversations.
+- **Custom-built AI Chat Companions:**  
+  Developing an in-house AI conversational system based on lightweight machine learning techniques, aiming for natural and heartfelt interactions without relying on large external LLM services.
 
-- 💬 **Online Chat Rooms:**  
-  Global and themed chat rooms to unite fan communities in real-time.
+- **Global & Themed Chat Rooms:**  
+  Real-time spaces where fans gather, share, and celebrate their passion together.
 
-- 🎮 **Games & Premium Content:**  
-  Earn Yumeta Coins through platform engagement,  
-  unlocking exclusive content, mini games, and special features.
+- **Rewards, Games & Exclusive Content:**  
+  Engage with the platform to earn Yumeta Coins, unlocking special content, mini-games, and unique experiences designed to deepen your connection to the community.
+
 
 ---
 
