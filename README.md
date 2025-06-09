@@ -60,12 +60,12 @@ Looking forward, the platform will evolve with immersive and interactive feature
 
 | Phase               | Technologies                          |
 |---------------------|------------------------------------|
-| Current             | HTML, CSS, JavaScript               |
-| Menu & UI Effects   | CSS Animations, Vanilla JavaScript  |
-| Video Playback       | HTML5 Video API, Custom Player UI   |
+| Frontend             | HTML, CSS, JavaScript               |
+| UI Effects & Animations    | CSS Animations, Vanilla JavaScript  |
+| Video Playback       | HTML5 Video API, Custom Player UI(JavaScript)   |
 | AI Chat              | Python, TensorFlow / PyTorch (ML Basics) |
-| Chat Rooms           | WebSocket, Node.js / FastAPI        |
-| Rewards & Games      | Backend: Node.js / Python, Database: PostgreSQL / Redis |
+| Real-Time Chat Rooms | WebSocket, Node.js / FastAPI        |
+| Rewards & Mini-Games Backend       |  Node.js / Python,PostgreSQL / Redis |
 
 ---
 
