@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yumeta</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      height: 100vh;
+      background: url('Images/bg4.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Panel */
+    .panel {
+      position: absolute;
+      inset: 40px 60px;
+      background: rgba(255, 182, 193, 0.12);
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255, 182, 193, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      z-index: 2;
+      overflow: hidden;
+    }
+    /* Top Bar */
+    .top-bar { display: flex; justify-content: flex-end; align-items: center; gap: 20px; z-index: 4; }
+    .search-box { padding: 10px 20px; border-radius: 30px; border: none; outline: none; width: 220px; font-size: 16px; background: rgba(255,255,255,0.8); color: #333; }
+    .user-greeting { display: flex; align-items: center; gap: 8px; background: rgba(255,182,193,0.3); padding: 8px 16px; border-radius: 20px; font-weight: bold; box-shadow: 0 0 8px rgba(255,182,193,0.4); z-index: 4; }
+    .user-greeting img { width: 32px; height: 32px; border-radius: 50%; }
+    /* Sidebar */
+    .sidebar {
+      position: absolute;
+      top: 140px;
+      left: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 4;
+    }
+    .nav-icon { background: rgba(255,182,193,0.2); border:1px solid rgba(255,182,193,0.5); backdrop-filter: blur(2px); color:#fff; font-size:22px; padding:14px; border-radius:50%; cursor:pointer; transition:all .3s; box-shadow:0 0 8px rgba(255,182,193,0.4); }
+    .nav-icon:hover, .nav-icon.active { background: rgba(255,105,180,0.8); transform: scale(1.2); box-shadow:0 0 18px #ff69b4; }
+
+
+    /* Title Top-Left */
+  @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&family=Bebas+Neue&family=Kalam&display=swap');
+ .main-header {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 5;
+}
+
+.main-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 40px;
+  color: #ff69b4;
+  text-shadow:
+    1px 1px 2px #551144,   
+    0 0 4px #ff85c1;       
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+.katana-jp {
+  font-family: 'Sawarabi Mincho', serif; 
+  font-size: 72px;
+  color: #ffc0cb;
+  text-shadow: 1px 1px 3px #440044;
+  letter-spacing: 2px;
+}
+
+.sub-title {
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+  color: #ffb6c1;
+  text-shadow: 1px 1px 3px #220022;
+  margin-top: 6px;
+}
+
+.sub-title span {
+  font-weight: 700;
+  color: #ff1493;
+}
+
+
+
+/* Actions */
+.actions { 
+  display: flex; 
+  gap: 20px; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  margin-bottom: 10px; 
+  z-index: 4; 
+}
+
+.action-card, .stats-card { 
+  background: rgba(255,192,203,0.2); 
+  border: 1px solid rgba(255,182,193,0.5); 
+  padding: 20px 30px; 
+  border-radius: 20px; 
+  width: 240px; 
+  backdrop-filter: blur(2px); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  text-align: center; 
+  transition: transform .3s, box-shadow .3s; 
+  z-index: 4; 
+}
+
+.action-card:hover, .stats-card:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 10px 24px rgba(255,105,180,0.4); 
+}
+
+.action-card h2 { 
+  font-size: 22px; 
+  color: #ff69b4;
+  margin-bottom: 10px;
+  text-shadow:
+    1px 1px 2px #a6145d,
+    0 0 2px #ff69b4;
+  transition: text-shadow 0.3s ease;
+}
+
+.action-card h2:hover {
+  text-shadow:
+    2px 2px 5px #ff4f9a,
+    0 0 8px #ff1493;
+}
+
+.action-card span { 
+  color: #ff69b4; 
+  font-weight: bold; 
+}
+
+.action-card button { 
+  background: linear-gradient(135deg, #ff9ecb, #ff69b4); 
+  border: none; 
+  border-radius: 12px; 
+  padding: 10px 20px; 
+  margin-top: 15px; 
+  color: #fff; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: transform .2s, background .3s, box-shadow .3s, text-shadow .3s;
+  text-shadow: 1px 1px 2px #551144;
+}
+
+.action-card button:hover { 
+  background: linear-gradient(135deg, #ff69b4, #ff1493); 
+  transform: scale(1.03);
+  box-shadow: 0 0 12px #ff69b4;
+  text-shadow: 2px 2px 6px #ff1493;
+}
+
+.action-card h2.glow {
+  text-shadow:
+    0 0 6px #ff4f9a,
+    0 0 10px #ff1493,
+    0 0 20px #ff69b4,
+    0 0 30px #ff1493;
+}
+
+    /* Glow Animation for Stats */
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; }
+      50% { text-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493; }
+      100% { text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; }
+    }
+    .stats-card h3 {
+      font-size:36px;
+      color:#fff;
+      font-weight:bold;
+      animation: glow 2s infinite;
+    }
+    .stats-card p {
+      font-size:18px;
+      font-weight:bold;
+      color:#fff;
+      margin-top:8px;
+      animation: glow 2s infinite;
+    }
+
+    /* Character Inside Panel */
+    .center-character { position:absolute; left:50%; bottom:-20px; transform:translateX(-50%); pointer-events:none; z-index:3; }
+    .character-img { height:600px; object-fit:contain; }
+
+ /* Theme Button */
+.theme-toggle {
+  background: rgba(255, 182, 193, 0.4); 
+  border: 1px solid rgba(255, 182, 193, 0.6);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 15px;
+  color: #ff69b4; 
+  font-weight: 600;
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-right: 12px;
+  margin-left: -8px;
+  box-shadow: 0 0 6px rgba(255, 182, 193, 0.5); 
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.theme-toggle:hover {
+  background: #ff69b4;
+  color: #fff;
+  box-shadow: 0 0 10px #ff69b4;
+}
+
+
+/* Theme Panel */
+.theme-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 182, 193, 0.4);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+  animation: slideDown 0.3s ease forwards;
+  color: #fdfdfd;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.theme-panel.hidden {
+  display: none;
+}
+
+.theme-panel h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff9dc9;
+  text-align: center;
+}
+
+.theme-panel p {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.theme-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.theme-option {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  color: #fefefe;
+  letter-spacing: 0.5px;
+}
+
+.theme-option:hover {
+  background: rgba(255, 182, 193, 0.15);
+  transform: translateY(-2px);
+}
+
+.save-theme {
+  margin-top: 16px;
+  width: 100%;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.save-theme:hover {
+  background-color: #ff4c9e;
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/*Sakura Style1 */
+/* #sakura {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.sakura-petal {
+  position: absolute;
+  background: url('Images/sakura2.png') no-repeat center center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.5;
+  }
+} */
+
+/*Sakura Style 2*/
+#sakura {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    perspective: 800px;
+    z-index: 0;
+  }
+
+  .sakura-petal {
+    position: absolute;
+    background-image: url('Images/sakura2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform, top, left, opacity;
+    pointer-events: none;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+    animation-name: sway, rotate;
+    animation-timing-function: ease-in-out, linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  </style>
+
+
+</head>
+<body>
+  <div class="panel">
+    <div class="center-character">
+      <img src="Images/cha1.png" alt="Phoebe" class="character-img" />
+    </div>
+    <div class="top-bar">
+      <div class="theme-toggle-wrapper" style="position: relative;">
+  <button class="theme-toggle">Theme</button>
+  <div id="theme-panel" class="theme-panel hidden">
+    <div class="theme-list">
+      <div class="theme-option" onclick="applyTheme('theme1')">
+        <span>Sakura</span>
+      </div>
+      <div class="theme-option" onclick="applyTheme('theme2')">
+        <span>Havoc</span>
+      </div>
+      <div class="theme-option" onclick="applyTheme('theme3')">
+        <span>Celestial</span>
+      </div>
+    </div>
+    <button class="save-theme" onclick="saveTheme()">Save</button>
+  </div>
+</div>
+
+      <input type="text" class="search-box" placeholder="Search..." />
+      <div class="user-greeting">
+        <span>Hi, aerinera</span>
+        <img src="Images/pp1.jpeg" alt="Avatar" />
+      </div>
+    </div>
+
+
+    <div class="sidebar">
+      <button class="nav-icon">💮</button>
+      <button class="nav-icon">📖</button>
+      <button class="nav-icon">🎬</button>
+      <button class="nav-icon">💭</button>
+      <button class="nav-icon">⚙️</button>
+    </div>
+    <div class="main-header">
+  <h1 class="main-title">Yumeta <span class="jp-title">夢現</span></h1>
+  <p class="sub-title">Where warm hearts meet anime dreams in a world of wonder.</p>
+</div>
+
+    <div class="actions">
+      <div class="action-card">
+        <h2>Universe</h2>
+        <p><span>Explore</span> anime & manga worlds</p>
+        <button>Enter</button>
+      </div>
+      <div class="action-card">
+        <h2>Companion</h2>
+        <p><span>Chat</span> with your AI friend </p>
+        <button>Talk</button>
+      </div>
+      
+        <div class="action-card">
+        <h2>Lounge</h2>
+        <p><span>Join</span> global chat rooms</p>
+        <button>Join</button>
+        </div>
+
+        <div class="action-card">
+        <h2>Arcade</h2>
+        <p><span>Play</span> mini-games & discover events</p>
+        <button>Play</button>
+        </div>
+    </div>
+  </div>
+
+
+  <div id="sakura"></div>
+
+  <script>
+
+
+
+
+// Theme Changer(looking for suitable color palette and assets to be added later)
+
+//   const themeToggle = document.querySelector('.theme-toggle');
+//   const themePanel = document.getElementById('theme-panel');
+
+//   themeToggle.addEventListener('click', () => {
+//     themePanel.classList.toggle('hidden');
+//   });
+
+//   function applyTheme(themeName) {
+//     if (themeName === 'theme1') {
+//       document.body.style.background = "";
+//     } else if (themeName === 'theme2') {
+//       document.body.style.background = "";
+//     } else if (themeName === 'theme3') {
+//       document.body.style.background = "";
+//     }
+//   }
+
+//   function saveTheme() {
+//     alert("Theme saved!");
+//   }
+
+
+//     document.querySelectorAll('.action-card').forEach(card => {
+//     const button = card.querySelector('button');
+//     const heading = card.querySelector('h2');
+
+//     button.addEventListener('mouseenter', () => {
+//       heading.classList.add('glow');
+//     });
+
+//     button.addEventListener('mouseleave', () => {
+//       heading.classList.remove('glow');
+//     });
+//   }); 
+
+
+
+
+
+//   Sakura Effect1
+//   const sakuraContainer = document.getElementById('sakura');
+
+//   
+//   const sakuraPetalURL = 'Images/sakura2.png';
+
+//   
+//   function createSakuraPetal() {
+//     const petal = document.createElement('div');
+//     petal.classList.add('sakura-petal');
+
+//    
+//     petal.style.left = Math.random() * window.innerWidth + 'px';
+
+//     
+//     petal.style.top = '-20px';
+
+//   
+//     const size = 15 + Math.random() * 15;
+//     petal.style.width = size + 'px';
+//     petal.style.height = size + 'px';
+
+//     
+//     const duration = 7000 + Math.random() * 8000;
+//     petal.style.animationDuration = duration + 'ms';
+
+//    
+//     petal.style.animationDelay = Math.random() * 15000 + 'ms';
+
+//     sakuraContainer.appendChild(petal);
+
+// 
+//     petal.addEventListener('animationend', () => {
+//       petal.remove();
+//     });
+//   }
+
+//   
+//   setInterval(createSakuraPetal, 300);
+
+//   
+//   for (let i = 0; i < 10; i++) {
+//     createSakuraPetal();
+//   }
+
+//Sakura Effect2*
+ const sakuraContainer = document.getElementById('sakura');
+  const maxPetals = 20;
+  const petals = [];
+
+  function createSakuraPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('sakura-petal');
+
+    const depth = Math.random();
+    const size = 10 + depth * 15;
+    petal.style.width = size + 'px';
+    petal.style.height = size + 'px';
+    petal.style.opacity = (0.3 + depth * 0.7).toFixed(2);
+
+    const startX = Math.random() * window.innerWidth;
+    petal.style.left = startX + 'px';
+    petal.style.top = '-40px';
+
+    const swayDuration = 3000 + depth * 4000;
+    const rotateDuration = 4000 + depth * 6000;
+    petal.style.animationDuration = `${swayDuration}ms, ${rotateDuration}ms`;
+    petal.style.zIndex = Math.floor(depth * 3);
+    const translateZ = depth * 50;
+    petal.style.transform = `translateZ(${translateZ}px)`;
+
+    sakuraContainer.appendChild(petal);
+
+    const fallSpeed = 0.5 + depth * 1.5;
+    let top = -40;
+
+    function fall() {
+      top += fallSpeed;
+      petal.style.top = top + 'px';
+
+      if (top > window.innerHeight + 40) {
+        petal.remove();
+        const index = petals.indexOf(petal);
+        if (index > -1) petals.splice(index, 1);
+        createSakuraPetal();
+      } else {
+        requestAnimationFrame(fall);
+      }
+    }
+
+    petals.push(petal);
+    fall();
+  }
+
+  for(let i=0; i<maxPetals/2; i++) {
+    createSakuraPetal();
+  }
+
+  setInterval(() => {
+    if (petals.length < maxPetals) {
+      createSakuraPetal();
+    }
+  }, 1200);
+
+</script>
+
+</body>
+</html>
