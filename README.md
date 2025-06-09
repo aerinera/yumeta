@@ -28,7 +28,7 @@ A soft and immersive space where anime, manga, and human-like AI companions meet
 Here’s a look into our current homepage:
 
 <p align="center">
-  <img src="Images/yumetaMain.png" alt="Yumeta Homepage" width="80%">
+  <img src="Images/yumetaMain.png" alt="Yumeta Homepage" width="90%">
 </p>
 
 ---
